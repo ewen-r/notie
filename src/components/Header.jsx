@@ -1,7 +1,10 @@
 import React from "react";
 
-/** Component to display Header. */
-function Header() {
+
+/** Component to display Header.
+  * @param {any} props Input properties.
+*/
+function Header(props) {
   const appTitle = 'Keeper';
 
   return (

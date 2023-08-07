@@ -1,5 +1,6 @@
 import React from "react";
 
+
 /** Component to display Note.
   * @param {any} props Input properties.
 */
