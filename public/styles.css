@@ -1,7 +1,10 @@
 /* Color palette
  * https://colorhunt.co/palette/cece5affe17bfd8d14c51605
+  #C51605 - Dark red
+  #FD8D14 - Orange
+  #FFE17B - Manilla
+  #CECE5A - Olive
 */
-
 
 
 * {
@@ -22,16 +25,17 @@ body {
 
 header,
 footer {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: #C51605;
+  padding: 12px 32px;
   margin: auto -16px;
-  padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 header h1 {
   font-size: 3rem;
   letter-spacing: 0.4rem;
+  text-transform: uppercase;
   font-weight: 600;
 }
 
@@ -39,7 +43,6 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
   text-align: center;
 }
 
@@ -64,6 +67,7 @@ footer p {
 
 .note p {
   font-size: 1.1em;
+  font-family: 'Courier New', Courier, monospace;
   margin-bottom: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
