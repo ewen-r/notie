@@ -1,7 +1,15 @@
-// Main jsx file for the app.
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import Note from "./Note";
 
+/** Main App. */
 function App() {
-  return <h1> Goodbye World</h1>;
+  return <div>
+    <Header />
+    <Note />
+    <Footer />
+  </div>;
 }
 
 // Export the app
