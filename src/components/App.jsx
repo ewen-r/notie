@@ -17,6 +17,8 @@ import Notes from "./Notes";
   * @returns {jsx} JSX Element
 */
 function App(props) {
+  console.log(`App(): Deploy date: ${process.env.DEPLOY_DATETIME || new Date()}`);
+
   return (
     <div>
       <Header />
