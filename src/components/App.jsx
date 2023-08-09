@@ -18,6 +18,7 @@ import Notes from "./Notes";
 */
 function App(props) {
   console.log(`App(): Deploy date: ${process.env.DEPLOY_DATETIME || new Date()}`);
+  console.log("App(): env: ", process.env);
 
   return (
     <div>
