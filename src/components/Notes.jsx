@@ -182,6 +182,9 @@ function Notes(props) {
       </div>
 
       <div className="noteItemsDiv">
+        <div>
+          <h3> 👉 Click the note title to mark a note as complete.</h3>
+        </div>
         {notesData.notesArray.map(n => renderNote(n))}
       </div>
     </div>
