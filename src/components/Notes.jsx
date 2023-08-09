@@ -9,6 +9,7 @@
 import React, { useState } from "react";
 import { defaultNotes } from "./devComponents/defaultNotes";
 import Note from "./Note";
+import NoteCreate from "./NoteCreate";
 
 
 
@@ -20,105 +21,10 @@ function Notes(props) {
 
   console.debug("Notes(): ", props);
 
-  /** React state handler for notesData  */
-  const [notesData, setNotesData] = useState(
-    {
-      newNote: {
-        title: '',
-        content: ''
-      },
-      // Initially populate with some dummy notes.
-      notesArray: defaultNotes
-    }
+  /** React state handler for notesArray  */
+  const [notesArray, setNotesArray] = useState(
+    defaultNotes
   );
-
-
-  /** Handle input to the noteTitle form field.
-   * @param {Event} event Input event from form onChange event.
- */
-  function handleNoteTitleInput(event) {
-    // event.target.name = name of the input field.
-    // event.target.value = value in the input field.
-    const { name, value } = event.target;
-    console.debug("handleNoteTitleInput(): ", name, value);
-
-    setNotesData(
-      prevValue => {
-        console.debug("pv=", prevValue);
-        const ret = { ...prevValue };
-        ret.newNote.title = value;
-        console.debug("ret=", ret);
-        return ret;
-      }
-    );
-  }
-
-
-  /** Handle input to the noteContent form field.
-   * @param {Event} event Input event from form onChange event.
- */
-  function handleNoteContentInput(event) {
-    // event.target.name = name of the input field.
-    // event.target.value = value in the input field.
-    const { name, value } = event.target;
-    console.debug("handleNoteContentInput(): ", name, value);
-
-    setNotesData(
-      prevValue => {
-        console.debug("pv=", prevValue);
-        const ret = { ...prevValue };
-        ret.newNote.content = value;
-        console.debug("ret=", ret);
-        return ret;
-      }
-    );
-  }
-
-
-  /** Handle form submit.
-   * @param {Event} event Input event from form submit button.
- */
-  function onSubmit(event) {
-    const title = event.target?.noteTitle?.value;
-    const content = event.target?.noteContent?.value;
-
-    console.log("onSubmit(): ", title, content);
-
-    setNotesData(
-      prevValue => {
-        console.debug("pv=", prevValue);
-
-        // Append a new note onto the current notes array.
-        const notesArray = [
-          ...prevValue.notesArray,
-          {
-            title: title,
-            content: content
-          }
-        ];
-
-        // Renumber the array to ensure we have unique IDs.
-        renumberNotes(notesArray);
-
-        // Set new notesData.
-        const ret = {
-          // Clear the new note form values.
-          newNote: {
-            title: '',
-            content: ''
-          },
-          // Set the new notesArray.
-          notesArray: notesArray
-        };
-        console.debug("ret=", ret);
-
-        return ret;
-      }
-    );
-
-    // Prevent next default behaviour (which is to refresh the form and thus clearing out its content).
-    event.preventDefault();
-  }
 
 
   /** Renumber notes in array.
@@ -152,29 +58,47 @@ function Notes(props) {
   }
 
 
+  /** Creates a new note and appends it to the current list.
+    * @param {any} note Input note object.
+  */
+  function createNote(note) {
+    console.log("createNote():", note);
+
+    // Append new note onto the current notes array.
+    const notes = [
+      ...notesArray,
+      note
+    ];
+
+    // Renumber the array to ensure we have unique IDs.
+    renumberNotes(notes);
+
+    // Set notes array.
+    setNotesArray(notes);
+  }
+
+
   /** Deletes a note.
     * @param {number} id ID of note to be deleted.
   */
   function deleteNote(id) {
     console.log("deleteNote(): ", id);
 
-    setNotesData(
+    setNotesArray(
       prevValue => {
         console.debug("pv=", prevValue);
-        const ret = {...prevValue};
+        const ret = { ...prevValue };
 
         // Filter out the specified note from the current notes array.
-        const notesArray = ret.notesArray.filter(
+        const notesArray = prevValue.filter(
           n => n.id !== id
         );
 
         // Renumber the array to ensure we have unique IDs.
         renumberNotes(notesArray);
 
-        // Set new notesData.
-        ret.notesArray = notesArray;
-        console.debug("ret=", ret);
-
+        // Set notes array.
+        console.debug("ret=", notesArray);
         return ret;
       }
     );
@@ -183,43 +107,22 @@ function Notes(props) {
 
   /** Return the React element.
     * - A notesDiv which includes the entire Element.
-    * - - A newNoteDiv which includes an area for adding a new note.
-    * - - - A form to hold the new note inputs.
-    * - - - - noteTitle input field.
-    * - - - - noteContent textarea field.
-    * - - - - submit button.
-    * - - - A noteItemsDiv which includes an area for the note items.
-    * - - - - A infoDiv with some helpful hints.
-    * - - - - Multiple Note items.
+    * - - A NoteCreate Element which includes an area for adding a new note.
+    * - - A noteItemsDiv which includes...
+    * - - - A infoDiv with some helpful hints.
+    * - - - Multiple Note items.
   */
   return (
     <div className="notesDiv">
-      <div className="newNoteDiv justifyContentsCentre">
-        <form onSubmit={onSubmit}>
-          <input type="text" name="noteTitle" placeholder="New note title"
-            className="inputWide"
-            onChange={handleNoteTitleInput} value={notesData.newNote.title}>
-          </input>
-
-          <textarea type="text" name="noteContent" placeholder="New note content"
-            className="inputTall inputWide"
-            onChange={handleNoteContentInput} value={notesData.newNote.content}>
-          </textarea>
-
-          <div className="justifyContentsRight">
-            <div>
-              <button type="submit" disabled={!notesData.newNote.title}>create</button>
-            </div>
-          </div>
-        </form>
-      </div>
+      <NoteCreate createNote={createNote} />
 
       <div className="noteItemsDiv">
         <div className="infoDiv">
           <h3> ⚫ Click the note title to mark a note as complete.</h3>
           <h3> ⚫ Click delete to permanently remove a completed note.</h3>
         </div>
-        {notesData.notesArray.map(n => renderNote(n))}
+
+        {notesArray.map(n => renderNote(n))}
       </div>
     </div>
   );
