@@ -97,7 +97,7 @@ function Notes(props) {
           }
         ];
 
-        // Renumber the array to ensure we have unique keys.
+        // Renumber the array to ensure we have unique IDs.
         renumberNotes(notesArray);
 
         // Set new notesData.
@@ -122,7 +122,7 @@ function Notes(props) {
 
 
   /** Renumber notes in array.
-    * This ensures that each note has a unique key.
+    * This ensures that each note has a unique ID.
    * @param {notesArray} notes Array of note items.
  */
   function renumberNotes(notes) {
@@ -130,6 +130,7 @@ function Notes(props) {
 
     notes.forEach(n => {
       n.key = i++;
+      n.id = n.key;
     });
   }
 
@@ -142,9 +143,40 @@ function Notes(props) {
     return (
       <Note
         key={note.key}
+        id={note.key}
         title={note.title}
         content={note.content}
+        deleteNote={deleteNote}
       />
+    );
+  }
+
+
+  /** Deletes a note.
+    * @param {number} id ID of note to be deleted.
+  */
+  function deleteNote(id) {
+    console.log("deleteNote(): ", id);
+
+    setNotesData(
+      prevValue => {
+        console.debug("pv=", prevValue);
+        const ret = {...prevValue};
+
+        // Filter out the specified note from the current notes array.
+        const notesArray = ret.notesArray.filter(
+          n => n.id !== id
+        );
+
+        // Renumber the array to ensure we have unique IDs.
+        renumberNotes(notesArray);
+
+        // Set new notesData.
+        ret.notesArray = notesArray;
+        console.debug("ret=", ret);
+
+        return ret;
+      }
     );
   }
 
@@ -156,7 +188,8 @@ function Notes(props) {
     * - - - - noteTitle input field.
     * - - - - noteContent textarea field.
     * - - - - submit button.
-    * - - - A noteItemsDiv which includes all the note items.
+    * - - - A noteItemsDiv which includes an area for the note items.
+    * - - - - A infoDiv with some helpful hints.
     * - - - - Multiple Note items.
   */
   return (
@@ -182,8 +215,9 @@ function Notes(props) {
       </div>
 
       <div className="noteItemsDiv">
-        <div>
-          <h3> 👉 Click the note title to mark a note as complete.</h3>
+        <div className="infoDiv">
+          <h3> ⚫ Click the note title to mark a note as complete.</h3>
+          <h3> ⚫ Click delete to permanently remove a completed note.</h3>
         </div>
         {notesData.notesArray.map(n => renderNote(n))}
       </div>
