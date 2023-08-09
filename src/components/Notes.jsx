@@ -18,7 +18,6 @@ import NoteCreate from "./NoteCreate";
   * @returns {jsx} JSX Element
 */
 function Notes(props) {
-
   console.debug("Notes(): ", props);
 
   /** React state handler for notesArray  */
@@ -62,8 +61,6 @@ function Notes(props) {
     * @param {any} note Input note object.
   */
   function createNote(note) {
-    console.log("createNote():", note);
-
     // Append new note onto the current notes array.
     const notes = [
       ...notesArray,
@@ -82,11 +79,8 @@ function Notes(props) {
     * @param {number} id ID of note to be deleted.
   */
   function deleteNote(id) {
-    console.log("deleteNote(): ", id);
-
     setNotesArray(
       prevValue => {
-        console.debug("pv=", prevValue);
         const ret = { ...prevValue };
 
         // Filter out the specified note from the current notes array.
@@ -98,7 +92,6 @@ function Notes(props) {
         renumberNotes(notesArray);
 
         // Set notes array.
-        console.debug("ret=", notesArray);
         return ret;
       }
     );

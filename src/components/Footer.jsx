@@ -14,6 +14,8 @@ import React from "react";
   * @returns {jsx} JSX Element
 */
 function Footer(props) {
+  console.debug("Footer(): ", props);
+
   return (
     <footer>
       <p>Copyright © E Reynolds {new Date().getFullYear()}</p>

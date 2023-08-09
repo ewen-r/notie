@@ -14,7 +14,6 @@ import React, { useState } from "react";
   * @returns {jsx} JSX Element
 */
 function NoteCreate(props) {
-
   console.debug("NoteCreate(): ", props);
 
   /** React state handler for newNote  */
@@ -33,14 +32,11 @@ function NoteCreate(props) {
     // event.target.name = name of the input field.
     // event.target.value = value in the input field.
     const { name, value } = event.target;
-    console.debug("handleNoteTitleInput(): ", name, value);
 
     setNewNote(
       prevValue => {
-        console.debug("pv=", prevValue);
         const ret = { ...prevValue };
         ret.title = value;
-        console.debug("ret=", ret);
         return ret;
       }
     );
@@ -54,14 +50,11 @@ function NoteCreate(props) {
     // event.target.name = name of the input field.
     // event.target.value = value in the input field.
     const { name, value } = event.target;
-    console.debug("handleNoteContentInput(): ", name, value);
 
     setNewNote(
       prevValue => {
-        console.debug("pv=", prevValue);
         const ret = { ...prevValue };
         ret.content = value;
-        console.debug("ret=", ret);
         return ret;
       }
     );
@@ -75,8 +68,6 @@ function NoteCreate(props) {
   function onSubmit(event) {
     const title = event.target?.noteTitle?.value;
     const content = event.target?.noteContent?.value;
-
-    console.log("onSubmit(): ", title, content);
 
     // Call parent to create a new note.
     props.createNote({

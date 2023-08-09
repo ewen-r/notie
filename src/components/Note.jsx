@@ -14,9 +14,7 @@ import React, { useState } from "react";
   * @returns {jsx} JSX Element
 */
 function Note(props) {
-
-  console.log("Note():", props);
-
+  console.debug("Note(): ", props);
 
   /** React state handler for completed */
   const [completed, setCompleted] = useState(false);
@@ -25,7 +23,6 @@ function Note(props) {
     * @param {Event} event click event.
   */
   function toggleCompleted(event) {
-    console.log("toggleCompleted():", event);
     setCompleted(
       prev => { return !prev; }
     );
@@ -36,7 +33,6 @@ function Note(props) {
     * - Call parent method to delete the note.
   */
   function onDelete() {
-    console.log("onDelete():");
     props.deleteNote(props.id);
   }
 

@@ -14,6 +14,8 @@ import React from "react";
   * @returns {jsx} JSX Element
 */
 function Header(props) {
+  console.debug("Header(): ", props);
+
   const appTitle = 'Keeper';
 
   return (
