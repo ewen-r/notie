@@ -1,6 +1,6 @@
 
 /** Dummy note data. */
-export const dummyNotes = [
+export const defaultNotes = [
   {
     key: 1,
     title: "My first note",
@@ -23,8 +23,5 @@ export const dummyNotes = [
     title: "My fourth note",
     content:
       'Nunc elementum, lorem tristique commodo tincidunt, nunc tortor facilisis metus, nec imperdiet risus ante a est. Praesent id tristique sem. Donec convallis fringilla lorem at faucibus. Donec sed aliquet enim. Morbi quis nisl nisl. Curabitur quis lacus ut sem egestas ullamcorper eget ac libero. Ut ullamcorper massa eget pharetra scelerisque. Integer et elit sed mi aliquam egestas. Donec auctor ante sit amet risus facilisis, volutpat auctor magna commodo. Nullam sit amet sagittis urna. Praesent purus leo, pretium id quam ut, aliquet congue mauris. Mauris quis tellus ipsum. Integer sit amet nunc vitae arcu posuere sagittis.'
-  },
-  {
-    key: 5
   }
 ];
