@@ -53,13 +53,14 @@ footer p {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.notes {
+.notesDiv {
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
 
-.note {
+.noteDiv,
+.newNoteDiv {
   background: #FFE17B;
   border-radius: 7px;
   box-shadow: 0 2px 5px #000;
@@ -71,15 +72,68 @@ footer p {
   float: left;
 }
 
-.note h1 {
+.noteDiv h1,
+.newNoteDiv h1 {
   font-size: 1.3rem;
   margin-bottom: 6px;
 }
 
-.note p {
+.noteDiv p,
+.newNoteDiv textarea {
   font-size: 1rem;
   font-family: 'Courier New', Courier, monospace;
-  margin-bottom: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+button,
+input,
+textarea {
+  min-height: 3rem;
+  min-width: 6rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #FFE17B;
+  border: black 0.15rem solid;
+  text-align: left;
+  font-size: 1.1rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button {
+  text-align: center;
+  background-color: #CECE5A;
+  text-transform: uppercase;
+}
+
+textarea {
+  resize: none;
+}
+
+/* any items inside this div will be right aligned. */
+.alignContentsRight {
+  display:flex;
+  justify-content: end;
+}
+
+/* any items inside this div will be left aligned. */
+.alignContentsLeft {
+  display:flex;
+  justify-content: start;
+}
+
+/* any items inside this div will be centre aligned. */
+.alignContentsCentre {
+  display:flex;
+  justify-content: center;
+}
+
+.inputWide {
+  width: 100%;
+}
+
+.inputTall {
+  height: 100px;
+}
+
