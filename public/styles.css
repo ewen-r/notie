@@ -112,28 +112,31 @@ textarea {
 }
 
 /* any items inside this div will be right aligned. */
-.alignContentsRight {
+.justifyContentsRight {
   display:flex;
   justify-content: end;
 }
 
 /* any items inside this div will be left aligned. */
-.alignContentsLeft {
+.justifyContentsLeft {
   display:flex;
   justify-content: start;
 }
 
 /* any items inside this div will be centre aligned. */
-.alignContentsCentre {
+.justifyContentsCentre {
   display:flex;
   justify-content: center;
 }
 
 .inputWide {
-  width: 100%;
+  min-width: 100%;
 }
 
 .inputTall {
-  height: 100px;
+  min-height: 100px;
 }
 
+.strikeThrough {
+  text-decoration: line-through;
+}

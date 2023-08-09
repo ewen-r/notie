@@ -79,7 +79,10 @@ function Notes(props) {
    * @param {Event} event Input event from form submit button.
  */
   function onSubmit(event) {
-    console.log("onSubmit(): ", event.currentTarget);
+    const title = event.target?.noteTitle?.value;
+    const content = event.target?.noteContent?.value;
+
+    console.log("onSubmit(): ", title, content);
 
     setNotesData(
       prevValue => {
@@ -89,8 +92,8 @@ function Notes(props) {
         const notesArray = [
           ...prevValue.notesArray,
           {
-            title: prevValue.newNote.title,
-            content: prevValue.newNote.content
+            title: title,
+            content: content
           }
         ];
 
@@ -135,7 +138,7 @@ function Notes(props) {
     * @param {any} note Input note object.
     * @returns {jsx} JSX Element
   */
-  function showNote(note) {
+  function renderNote(note) {
     return (
       <Note
         key={note.key}
@@ -158,7 +161,7 @@ function Notes(props) {
   */
   return (
     <div className="notesDiv">
-      <div className="newNoteDiv">
+      <div className="newNoteDiv justifyContentsCentre">
         <form onSubmit={onSubmit}>
           <input type="text" name="noteTitle" placeholder="New note title"
             className="inputWide"
@@ -169,7 +172,8 @@ function Notes(props) {
             className="inputTall inputWide"
             onChange={handleNoteContentInput} value={notesData.newNote.content}>
           </textarea>
-          <div className="alignContentsRight">
+
+          <div className="justifyContentsRight">
             <div>
               <button type="submit" disabled={!notesData.newNote.title}>create</button>
             </div>
@@ -178,7 +182,7 @@ function Notes(props) {
       </div>
 
       <div className="noteItemsDiv">
-        {notesData.notesArray.map(n => showNote(n))}
+        {notesData.notesArray.map(n => renderNote(n))}
       </div>
     </div>
   );
