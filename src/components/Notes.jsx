@@ -13,7 +13,6 @@ import NoteCreate from "./NoteCreate";
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 
 
-
 /** Component to display and manage Notes.
   * @param {any} props Input properties.
   * @returns {jsx} JSX Element
@@ -143,18 +142,33 @@ function Notes(props) {
   */
   return (
     <div className="notesDiv">
-        <NoteCreate createNote={createNote} />
+      <div className="flexColumnContainer" >
+        <div className="flexItemStart flexRowContainer">
+          <NoteCreate createNote={createNote} />
 
-        <div className="noteItemsDiv">
-          <div className="infoDiv">
-            <h3> <LightbulbOutlinedIcon /> Use the panel to enter a new note.</h3>
-            <h3> <LightbulbOutlinedIcon /> Click the checkbox or title to mark/unmark a note as completed.</h3>
-            <h3> <LightbulbOutlinedIcon /> Click delete to permanently remove a completed note.</h3>
+          <div className="noteItemsDiv">
+            <div className="infoDiv">
+              <h2 className="underlined"> <LightbulbOutlinedIcon />Tips</h2>
+              <ul>
+                <li> To add a new note, use the panel on the left.</li>
+                <li> Enter a title and some content then click the "CREATE" button.</li>
+                <li> You cannot save your note until it has a title.</li>
+                <li> Notes are sorted and displayed according to their title.</li>
+                <li> Click the checkbox or title to mark/unmark a note as completed.</li>
+                <li> Once a note is marked as "complete", it can be permanently deleted by clicking the "DELETE" button.</li>
+                <li> Uncompleted notes cannot be deleted.</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-        {notesArray.map(n => renderNote(n))}
+        <hr />
+
+        <div className="flexRowContainer">
+          {notesArray.map(n => renderNote(n))}
+        </div>
       </div>
-    </div>
+    </div >
   );
 }
 
