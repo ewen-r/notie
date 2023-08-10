@@ -7,6 +7,7 @@
 */
 
 import React from "react";
+import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
 
 
 /** Component to display Header.
@@ -20,7 +21,9 @@ function Header(props) {
 
   return (
     <header>
-      <h1>{appTitle}</h1>
+      <h1>
+        <AddTaskOutlinedIcon fontSize="inherit" /> {appTitle}
+      </h1>
     </header>
   );
 }

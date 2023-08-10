@@ -94,12 +94,12 @@ function NoteCreate(props) {
   return (
     <div className="newNoteDiv justifyContentsCentre">
       <form onSubmit={onSubmit}>
-        <input type="text" name="noteTitle" placeholder="New note title"
+        <input type="text" name="noteTitle" placeholder="✏️New note title"
           className="inputWide"
           onChange={handleNoteTitleInput} value={newNote.title}>
         </input>
 
-        <textarea type="text" name="noteContent" placeholder="New note content"
+        <textarea type="text" name="noteContent" placeholder="✏️New note content"
           className="inputTall inputWide"
           onChange={handleNoteContentInput} value={newNote.content}>
         </textarea>

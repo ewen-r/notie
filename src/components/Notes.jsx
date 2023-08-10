@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { defaultNotes } from "./devComponents/defaultNotes";
 import Note from "./Note";
 import NoteCreate from "./NoteCreate";
+import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 
 
 
@@ -142,13 +143,14 @@ function Notes(props) {
   */
   return (
     <div className="notesDiv">
-      <NoteCreate createNote={createNote} />
+        <NoteCreate createNote={createNote} />
 
-      <div className="noteItemsDiv">
-        <div className="infoDiv">
-          <h3> ⚫ Click the note title to mark a note as complete.</h3>
-          <h3> ⚫ Click delete to permanently remove a completed note.</h3>
-        </div>
+        <div className="noteItemsDiv">
+          <div className="infoDiv">
+            <h3> <LightbulbOutlinedIcon /> Use the panel to enter a new note.</h3>
+            <h3> <LightbulbOutlinedIcon /> Click the checkbox or title to mark/unmark a note as completed.</h3>
+            <h3> <LightbulbOutlinedIcon /> Click delete to permanently remove a completed note.</h3>
+          </div>
 
         {notesArray.map(n => renderNote(n))}
       </div>

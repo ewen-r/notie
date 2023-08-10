@@ -58,6 +58,25 @@
     color: grey
   }
 
+.flexContainer,
+.flexColumnContainer {
+  display: flex;
+}
+
+.flexColumnContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexColumnContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexItem {
+
+}
+
   /* INFO */
   .infoDiv {
     background: #35A29F;
@@ -180,6 +199,7 @@
   .justifyContentsCentre {
     display: flex;
     justify-content: center;
+    width: 100%
   }
 
   .alignContentsStart {
@@ -190,6 +210,7 @@
   .alignContentsCentre {
     display: flex;
     align-items: center;
+    height: 100%
   }
 
   .alignContentsEnd {
