@@ -20,19 +20,30 @@ import NoteCreate from "./NoteCreate";
 function Notes(props) {
   console.debug("Notes(): ", props);
 
+  // Set some starter notes.
+  let starterNotes = [...defaultNotes];
+  sortAndIndexNotes(starterNotes);
+
   /** React state handler for notesArray  */
   const [notesArray, setNotesArray] = useState(
-    defaultNotes
+    starterNotes
   );
 
 
-  /** Renumber notes in array.
-    * This ensures that each note has a unique ID.
+  /** Sort notes by title and then re-index to ensure each note has a unique ID
    * @param {notesArray} notes Array of note items.
  */
-  function renumberNotes(notes) {
-    let i = 0;
+  function sortAndIndexNotes(notes) {
 
+    // Sort by title.
+    notes.sort(
+      function (a, b) {
+        return ('' + a.title).localeCompare(b.title);
+      }
+    );
+
+    // Re-index.
+    let i = 0;
     notes.forEach(n => {
       n.key = i++;
       n.id = n.key;
@@ -40,7 +51,7 @@ function Notes(props) {
   }
 
 
-  /** Creates a "Show Note" Element from input note object.
+  /** Creates a "Note" Element from input note object.
     * @param {any} note Input note object.
     * @returns {jsx} JSX Element
   */
@@ -51,7 +62,9 @@ function Notes(props) {
         id={note.key}
         title={note.title}
         content={note.content}
+        completed={note.completed || false}
         deleteNote={deleteNote}
+        toggleCompleted={toggleCompleted}
       />
     );
   }
@@ -67,8 +80,8 @@ function Notes(props) {
       note
     ];
 
-    // Renumber the array to ensure we have unique IDs.
-    renumberNotes(notes);
+    // Sort and re-index the notes to ensure we have unique IDs.
+    sortAndIndexNotes(notes);
 
     // Set notes array.
     setNotesArray(notes);
@@ -81,15 +94,37 @@ function Notes(props) {
   function deleteNote(id) {
     setNotesArray(
       prevValue => {
-        const ret = { ...prevValue };
-
         // Filter out the specified note from the current notes array.
         const notesArray = prevValue.filter(
           n => n.id !== id
         );
 
-        // Renumber the array to ensure we have unique IDs.
-        renumberNotes(notesArray);
+        // Sort and re-index the notes to ensure we have unique IDs.
+        sortAndIndexNotes(notesArray);
+
+        // Set notes array.
+        return notesArray;
+      }
+    );
+  }
+
+
+  /** Toggles completed state on a note.
+    * @param {number} id ID of note to be updated.
+  */
+  function toggleCompleted(id) {
+    setNotesArray(
+      prevValue => {
+        const ret = [...prevValue];
+
+        // Find the required note in the current notes array.
+        const noteIndex = ret.findIndex(
+          n => n.id === id
+        );
+
+        if (noteIndex !== -1) {
+          ret[noteIndex].completed = !ret[noteIndex].completed;
+        }
 
         // Set notes array.
         return ret;

@@ -29,9 +29,8 @@ function NoteCreate(props) {
    * @param {Event} event Input event from form onChange event.
  */
   function handleNoteTitleInput(event) {
-    // event.target.name = name of the input field.
     // event.target.value = value in the input field.
-    const { name, value } = event.target;
+    const { value } = event.target;
 
     setNewNote(
       prevValue => {
@@ -47,9 +46,8 @@ function NoteCreate(props) {
    * @param {Event} event Input event from form onChange event.
  */
   function handleNoteContentInput(event) {
-    // event.target.name = name of the input field.
     // event.target.value = value in the input field.
-    const { name, value } = event.target;
+    const { value } = event.target;
 
     setNewNote(
       prevValue => {
@@ -108,7 +106,7 @@ function NoteCreate(props) {
 
         <div className="justifyContentsRight">
           <div>
-            <button type="submit" disabled={!newNote.title}>create</button>
+            <button className="createButton" type="submit" disabled={!newNote.title}>create</button>
           </div>
         </div>
       </form>

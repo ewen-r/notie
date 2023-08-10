@@ -6,7 +6,7 @@
     in whole or in part, without the express prior written permission.
 */
 
-import React, { useState } from "react";
+import React from "react";
 
 
 /** Component to display Note.
@@ -16,16 +16,13 @@ import React, { useState } from "react";
 function Note(props) {
   console.debug("Note(): ", props);
 
-  /** React state handler for completed */
-  const [completed, setCompleted] = useState(false);
 
-  /** Toggle completed status of note.
-    * @param {Event} event click event.
+  /** Handle toggle note completed event.
+    * - Call parent method to toggle the complete state.
   */
-  function toggleCompleted(event) {
-    setCompleted(
-      prev => { return !prev; }
-    );
+  function onCompleted() {
+    console.log("toggleComplete(): ", props.id);
+    props.toggleCompleted(props.id);
   }
 
 
@@ -45,13 +42,18 @@ function Note(props) {
   */
   return (
     <div className="noteDiv">
-      <h1 className={completed ? "strikeThrough" : null} onClick={toggleCompleted}>{props.title || 'Untitled note'}</h1>
+      <div>
+        <h1 className={props.completed ? "strikeThrough" : null} onClick={onCompleted}>
+          <input type="checkbox" name="completed" checked={props.completed}></input>
+          {props.title || 'Untitled note'}
+        </h1>
+      </div>
 
-      <p className={completed ? "strikeThrough" : null} >{props.content || ''}</p>
+      <p className={props.completed ? "strikeThrough" : null} >{props.content || ''}</p>
 
       <div className="justifyContentsRight">
         <div>
-          <button className="deleteButton" onClick={onDelete} disabled={!completed}>delete</button>
+          <button className="deleteButton" onClick={onDelete} disabled={!props.completed}>delete</button>
         </div>
       </div>
     </div>

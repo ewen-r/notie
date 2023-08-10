@@ -1,176 +1,210 @@
   * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
 
-html {
-  font-family: "Montserrat", sans-serif;
-  position: relative;
-  padding-bottom: 2.5rem;
-  min-height: 100vh;
-}
-
-
-/* PAGE */
-body {
-  background-color: #1A374D;
-  padding: 0 16px;
-}
+  html {
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+    padding-bottom: 2.5rem;
+    min-height: 100vh;
+  }
 
 
-/* HEADER & FOOTER */
-header,
-footer {
-  color: white;
-  background-color: #000409;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  padding: 12px 32px;
-  text-align: center;
-  margin: auto -16px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-}
-
-header h1 {
-  font-size: 3rem;
-  letter-spacing: 1rem;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  min-height: 2.5rem
-}
-
-footer p {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-footer p.buildInfo {
-  text-align: right;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.6rem;
-  color: grey
-}
-
-/* INFO */
-.infoDiv {
-  background: #35A29F;
-  border-radius: 7px;
-  box-shadow: 0 2px 5px #000;
-  max-width: fit-content;
-  padding: 10px;
-  margin: 16px;
-}
+  /* PAGE */
+  body {
+    background-color: #1A374D;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    padding: 0 16px;
+  }
 
 
-.notesDiv {
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
+  /* HEADER & FOOTER */
+  header,
+  footer {
+    color: white;
+    background-color: #000409;
+    background-image: url("https://www.transparenttextures.com/patterns/rough-cloth-light.png");
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 12px 32px;
+    text-align: center;
+    margin: auto -16px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  }
 
+  header h1 {
+    font-size: 3rem;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
 
-/* NOTE */
-.noteDiv,
-.newNoteDiv {
-  background: #3886c1;
-  color: white;
-  border-radius: 7px;
-  box-shadow: 0 2px 5px #000;
-  padding: 10px;
-  min-width: 150px;
-  max-width: 250px;
-  min-height: 100px;
-  margin: 16px;
-  float: left;
-}
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 2.5rem;
+  }
 
-.noteDiv h1,
-.newNoteDiv h1 {
-  color: white;
-  font-size: 1.3rem;
-  margin-bottom: 6px;
-}
+  footer p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
 
-.noteDiv p,
-.newNoteDiv textarea {
-  font-size: 1rem;
-  /* font-family: 'Courier New', Courier, monospace; */
-  font-family: serif;
-  letter-spacing: 0.12rem;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  color: azure;
-}
+  footer p.buildInfo {
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.6rem;
+    color: grey
+  }
 
+  /* INFO */
+  .infoDiv {
+    background: #35A29F;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #000;
+    max-width: fit-content;
+    padding: 10px;
+    margin: 16px;
+  }
 
-/* TYPING AREA */
-button,
-input,
-textarea {
-  background-color: rgb(12, 20, 21);
-  min-height: 3rem;
-  min-width: 6rem;
-  border-radius: 0.5rem;
-  padding: 0.25rem;
-  margin-top: 0.5rem;
-  border: black 0.15rem solid;
-  text-align: left;
-  font-size: 1.1rem;
-  color: azure;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+  .notesDiv {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
 
-button {
-  text-align: center;
-  background-color: limegreen;
-  text-transform: uppercase;
-}
+  /* NOTE */
+  .noteDiv,
+  .newNoteDiv {
+    background: #3886c1;
+    background-image: url("https://www.transparenttextures.com/patterns/project-paper.png");
+    color: white;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #000;
+    padding: 10px;
+    min-width: 150px;
+    max-width: 250px;
+    min-height: 100px;
+    margin: 16px;
+    float: left;
+  }
 
-.deleteButton {
-  background-color: red;
-  color: white;
-}
+  .noteDiv {
+    margin-bottom: 3rem;
+  }
 
-button:disabled {
-  opacity: 0.25;
-}
+  .noteDiv h1,
+  .newNoteDiv h1 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
 
+  .noteDiv p,
+  .newNoteDiv textarea {
+    font-size: 1rem;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: serif;
+    letter-spacing: 0.12rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: azure;
+  }
 
-textarea {
-  resize: none;
-}
+  /* TYPING AREA */
+  button,
+  input,
+  textarea {
+    background-color: rgb(12, 20, 21);
+    min-height: 3rem;
+    min-width: 6rem;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    margin-top: 0.5rem;
+    border: black 0.15rem solid;
+    text-align: left;
+    font-size: 1.1rem;
+    color: azure;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
 
-/* any items inside this div will be right aligned. */
-.justifyContentsRight {
-  display: flex;
-  justify-content: end;
-}
+  button {
+    text-align: center;
+    background-color: limegreen;
+    text-transform: uppercase;
+    margin-left: 10px;
+  }
 
-/* any items inside this div will be left aligned. */
-.justifyContentsLeft {
-  display: flex;
-  justify-content: start;
-}
+  .deleteButton {
+    background-color: red;
+    color: white;
+  }
 
-/* any items inside this div will be centre aligned. */
-.justifyContentsCentre {
-  display: flex;
-  justify-content: center;
-}
+  .createButton {
+    background-color: limegreen;
+    color: white;
+  }
 
-.inputWide {
-  min-width: 100%;
-}
+  .createButton:hover:enabled {
+    scale: 120%;
+  }
 
-.inputTall {
-  min-height: 100px;
-}
+  h1 input {
+    min-height: 2rem;
+    min-width: 2rem;
+    margin-right: 0.5rem;
+  }
 
-.strikeThrough {
-  text-decoration: line-through;
-}
+  button:disabled {
+    opacity: 0.25;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  /* any items inside this div will be right aligned. */
+  .justifyContentsRight {
+    display: flex;
+    justify-content: end;
+  }
+
+  /* any items inside this div will be left aligned. */
+  .justifyContentsLeft {
+    display: flex;
+    justify-content: start;
+  }
+
+  /* any items inside this div will be centre aligned. */
+  .justifyContentsCentre {
+    display: flex;
+    justify-content: center;
+  }
+
+  .alignContentsStart {
+    display: flex;
+    align-items: start;
+  }
+
+  .alignContentsCentre {
+    display: flex;
+    align-items: center;
+  }
+
+  .alignContentsEnd {
+    display: flex;
+    align-items: end;
+  }
+
+  .inputWide {
+    min-width: 100%;
+  }
+
+  .inputTall {
+    min-height: 100px;
+  }
+
+  .strikeThrough {
+    text-decoration: line-through;
+  }
