@@ -17,12 +17,11 @@ import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
 function Header(props) {
   console.debug("Header(): ", props);
 
-  const appTitle = 'Keeper';
-
   return (
     <header>
-      <h1>
-        <AddTaskOutlinedIcon fontSize="inherit" /> {appTitle}
+      <h1 className="matIconWithText">
+        <AddTaskOutlinedIcon fontSize="inherit" />
+        <span>Keeper</span>
       </h1>
     </header>
   );

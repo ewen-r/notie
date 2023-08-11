@@ -7,6 +7,8 @@
 */
 
 import React from "react";
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
+import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 
 
 /** Component to display Note.
@@ -43,20 +45,27 @@ function Note(props) {
   return (
     <div className="noteDiv">
       <div>
-        <h1 className={props.completed ? "strikeThrough" : null} onClick={onCompleted}>
-          <input type="checkbox" name="completed" checked={props.completed}></input>
+        <h1 className={props.completed ? "strikeThrough" : null} >
           {props.title || 'Untitled note'}
         </h1>
       </div>
 
-      <p className={props.completed ? "strikeThrough" : null} >{props.content || ''}</p>
-
-      <div className="justifyContentsRight">
-        <div>
-          <button className="deleteButton" onClick={onDelete} disabled={!props.completed}>delete</button>
-        </div>
+      <div>
+        <p className={props.completed ? "strikeThrough" : null} >{props.content || ''}</p>
       </div>
-    </div>
+
+      <div className="justifyContentsRight alignContentsEnd">
+        <button
+          className={
+            `matIconButton buttonHoverZoom buttonAccept ${props.completed && "buttonFade"}`}
+          onClick={onCompleted} >
+          <DoneOutlinedIcon fontSize="inherit" />
+        </button>
+
+        <button className="matIconButton buttonDelete buttonHoverZoom" disabled={!props.completed} onClick={onDelete} >
+          <DeleteForeverOutlinedIcon fontSize="inherit" /></button>
+      </div>
+    </div >
   );
 }
 

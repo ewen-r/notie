@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import { defaultNotes } from "./devComponents/defaultNotes";
 import Note from "./Note";
 import NoteCreate from "./NoteCreate";
-import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
+import NotesInfo from "./NotesInfo";
 
 
 /** Component to display and manage Notes.
@@ -135,40 +135,30 @@ function Notes(props) {
 
   /** Return the React element.
     * - A notesDiv which includes the entire Element.
+    * - A div which includes...
     * - - A NoteCreate Element which includes an area for adding a new note.
-    * - - A noteItemsDiv which includes...
-    * - - - A infoDiv with some helpful hints.
-    * - - - Multiple Note items.
+    * - - A NotesInfo Element which includes an area for user tips and info.
+    * - A div which includes...
+    * - - Multiple Note items.
   */
   return (
-    <div className="notesDiv">
-      <div className="flexColumnContainer" >
-        <div className="flexItemStart flexRowContainer">
+    <div className="notesDiv flexColumnContainer">
+      <div className="flexItemStart flexRowContainer">
+        <div>
           <NoteCreate createNote={createNote} />
-
-          <div className="noteItemsDiv">
-            <div className="infoDiv">
-              <h2 className="underlined"> <LightbulbOutlinedIcon />Tips</h2>
-              <ul>
-                <li> To add a new note, use the panel on the left.</li>
-                <li> Enter a title and some content then click the "CREATE" button.</li>
-                <li> You cannot save your note until it has a title.</li>
-                <li> Notes are sorted and displayed according to their title.</li>
-                <li> Click the checkbox or title to mark/unmark a note as completed.</li>
-                <li> Once a note is marked as "complete", it can be permanently deleted by clicking the "DELETE" button.</li>
-                <li> Uncompleted notes cannot be deleted.</li>
-              </ul>
-            </div>
-          </div>
         </div>
 
-        <hr />
-
-        <div className="flexRowContainer">
-          {notesArray.map(n => renderNote(n))}
+        <div>
+          <NotesInfo />
         </div>
       </div>
-    </div >
+
+      <hr />
+
+      <div className="flexRowContainer">
+        {notesArray.map(n => renderNote(n))}
+      </div>
+    </div>
   );
 }
 

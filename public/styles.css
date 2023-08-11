@@ -38,6 +38,11 @@
     letter-spacing: 1rem;
     text-transform: uppercase;
     font-weight: 600;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   footer {
@@ -92,7 +97,7 @@
   }
 
   /* INFO */
-  .infoDiv {
+  .noteInfoDiv {
     background: #35A29F;
     border-radius: 7px;
     box-shadow: 0 2px 5px #000;
@@ -114,15 +119,20 @@
     border-radius: 7px;
     box-shadow: 0 2px 5px #000;
     padding: 10px;
-    min-width: 150px;
-    max-width: 250px;
-    min-height: 100px;
     margin: 16px;
-    float: left;
+    min-width: 150px;
   }
 
   .noteDiv {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 3rem;
+    height: 100%
+  }
+
+  .newNoteDiv {
+    max-width: 250px;
+    min-height: 100px;
   }
 
   .noteDiv h1,
@@ -144,7 +154,6 @@
   }
 
   /* TYPING AREA */
-  button,
   input,
   textarea {
     background-color: rgb(12, 20, 21);
@@ -162,33 +171,60 @@
 
   button {
     text-align: center;
-    background-color: limegreen;
     text-transform: uppercase;
-    margin-left: 10px;
+    border: 3px solid white;
   }
 
-  .deleteButton {
-    background-color: red;
+  button:disabled,
+  .buttonFade {
+    opacity: 0.25;
+  }
+
+  /* Mat-icon button. */
+  button.matIconButton {
+    background-color: blue;
     color: white;
+    font-size: 2rem;
+    border-radius: 50%;
+    display: flex;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 5px;
   }
 
-  .createButton {
-    background-color: limegreen;
-    color: white;
-  }
-
-  .createButton:hover:enabled {
+  /* Makes button icon zoom slightly when hovered over. */
+  button.buttonHoverZoom:hover:enabled {
     scale: 120%;
+  }
+
+  button.buttonAccept,
+  button.buttonSubmit,
+  button.buttonAdd {
+    background-color: limegreen;
+  }
+
+  button.buttonCancel,
+  button.buttonReject,
+  button.buttonDelete {
+    background-color: red;
+  }
+
+
+  .matIconWithText {
+    display: inline-flex;
+    align-items: center;
+    padding-right: 5px;
+  }
+
+  h1.matIconWithText span {
+    padding-left: 10px;
+    align-items: end;
   }
 
   h1 input {
     min-height: 2rem;
     min-width: 2rem;
     margin-right: 0.5rem;
-  }
-
-  button:disabled {
-    opacity: 0.25;
   }
 
   textarea {

@@ -7,6 +7,7 @@
 */
 
 import React, { useState } from "react";
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 
 /** Component to provide functionality for creating a new note.
@@ -106,7 +107,8 @@ function NoteCreate(props) {
 
         <div className="justifyContentsRight">
           <div>
-            <button className="createButton" type="submit" disabled={!newNote.title}>create</button>
+            <button type="submit" className="matIconButton buttonSubmit buttonHoverZoom" disabled={!newNote.title}>
+              <AddOutlinedIcon fontSize="inherit" /></button>
           </div>
         </div>
       </form>
