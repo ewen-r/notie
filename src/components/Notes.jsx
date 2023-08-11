@@ -155,7 +155,7 @@ function Notes(props) {
 
       <hr />
 
-      <div className="flexRowContainer">
+      <div className="flexRowContainer flexWrapRow alignContentStretch">
         {notesArray.map(n => renderNote(n))}
       </div>
     </div>

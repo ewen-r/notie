@@ -54,7 +54,7 @@ function Note(props) {
         <p className={props.completed ? "strikeThrough" : null} >{props.content || ''}</p>
       </div>
 
-      <div className="justifyContentsRight alignContentsEnd">
+      <div className="justifyContentsRight alignItemsEnd">
         <button
           className={
             `matIconButton buttonHoverZoom buttonAccept ${props.completed && "buttonFade"}`}
