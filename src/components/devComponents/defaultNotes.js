@@ -13,38 +13,42 @@ export const defaultNotes = [
   {
     key: 0,
     id: 0,
-    title: "Note 1.",
-    content: 'Notes are sorted and displayed according to their title.'
+    title: "1. Adding new notes",
+    content:
+      'To add a new note, use the panel on the left.' +
+      '  Enter a title and some content then click the "add" button.' +
+      '  You cannot save a note without a title.',
+    completed: false
   },
   {
     key: 1,
     id: 1,
-    title: "Note 2.",
+    title: "2. Notes display",
     content:
-      'To mark or un-mark a note as "complete", just click its title or checkbox.',
+      'Notes are sorted and displayed according to their title.',
     completed: false
   },
   {
     key: 2,
     id: 2,
-    title: "Note 3.",
+    title: "3. Completing a note",
     content:
-      'Once a nore is marked as "complete", it can be permanently deleted by clicking the "DELETE" button.' +
-      'Uncompleted notes cannot be deleted.',
+      'Click the "done" button mark a note completed.' +
+      '  Click the "done" button again to mark the note as incomplete.',
     completed: false
   },
   {
     key: 3,
     id: 3,
-    title: "Note 4.",
-    content: 'To add a new note.. use the new note panel at the top of the page. ' +
-      'Enter a title and some content then click the "CREATE" button. ' +
-      'You cannot save your note until it has a title.'
+    title: "4. Deleting a notes",
+    content: 'Once a note is marked as "completed",' +
+      ' it can be permanently deleted by clicking the "delete" button.' +
+      '  Uncompleted notes cannot be deleted.'
   },
   {
     key: 1,
     id: 4,
-    title: "Note 5.",
+    title: "5. Test note",
     content:
       'This is an example of a completed note.',
     completed: true

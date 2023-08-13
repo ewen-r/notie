@@ -19,7 +19,7 @@ function Footer(props) {
   return (
     <footer>
       <p>Copyright © E Reynolds {new Date().getFullYear()}</p>
-      <p className="buildInfo">DEPLOY_DATETIME: {process.env.DEPLOY_DATETIME || 'n/a'} RENDER_GIT_COMMIT: {process.env.RENDER_GIT_COMMIT || 'n/a'}</p>
+      {/* <p className="buildInfo">DEPLOY_DATETIME: {process.env.DEPLOY_DATETIME || 'n/a'} RENDER_GIT_COMMIT: {process.env.RENDER_GIT_COMMIT || 'n/a'}</p> */}
     </footer>
   );
 }

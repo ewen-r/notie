@@ -14,14 +14,19 @@ import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
   * @param {any} props Input properties.
   * @returns {jsx} JSX Element
 */
+
+
+// const logoMsg = "The simple note app";
+const logoMsg = "";
+
 function Header(props) {
   console.debug("Header(): ", props);
 
   return (
     <header>
       <h1 className="matIconWithText">
-        <AddTaskOutlinedIcon fontSize="inherit" />
-        <span>Keeper</span>
+        <img className="headerLogo" src="images/notie_logo_white.png" alt="logo" ></img>
+        <span> {logoMsg} </span>
       </h1>
     </header>
   );
