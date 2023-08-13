@@ -7,7 +7,6 @@
 */
 
 import React from "react";
-import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
 
 
 /** Component to display Header.
@@ -16,7 +15,6 @@ import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
 */
 
 
-// const logoMsg = "The simple note app";
 const logoMsg = "";
 
 function Header(props) {
